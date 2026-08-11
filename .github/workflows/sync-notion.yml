@@ -1,0 +1,31 @@
+name: Sync portfolio content from Notion
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/15 * * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch published content from Notion
+        env:
+          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+          NOTION_DATA_SOURCE_ID: 62d944c6-5c2f-4e10-b3ce-ee5dddca2210
+        run: node scripts/sync-notion.mjs
+      - name: Commit refreshed site data
+        run: |
+          if git diff --quiet -- data/portfolio.json images/notion; then
+            echo "No content changes to publish."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/portfolio.json images/notion
+          git commit -m "Sync portfolio content from Notion"
+          git push
