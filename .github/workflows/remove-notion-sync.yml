@@ -1,0 +1,21 @@
+name: Remove unused Notion sync
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove unused Notion sync files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          sed -i '/js\/notion-content.js/d' index.html
+          git rm .github/workflows/sync-notion.yml data/portfolio.json js/notion-content.js scripts/sync-notion.mjs .github/workflows/remove-notion-sync.yml
+          git commit -m "Remove unused Notion sync"
+          git push
