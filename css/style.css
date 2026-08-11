@@ -1282,6 +1282,9 @@ body.edit-mode .add-item-btn { display: flex; }
   gap: 0.5rem;
 }
 
+/* 内容改由私有 Notion 后台管理，避免浏览器本地保存造成误会。 */
+.edit-toolbar { display: none; }
+
 .edit-trigger-btn {
   background: var(--color-text);
   color: var(--color-bg);
