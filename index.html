@@ -12,6 +12,23 @@
 </head>
 <body>
 
+  <section class="entry-screen" id="entryScreen" aria-label="进入作品集">
+    <div class="entry-screen__frame">
+      <p class="entry-screen__label">GY / PORTFOLIO · SIGNAL 72 DPI</p>
+      <div class="entry-glitch" aria-hidden="true">
+        <img class="entry-glitch__image" src="images/entry-crt-interface.png" alt="" />
+        <img class="entry-glitch__channel entry-glitch__channel--red" src="images/entry-crt-interface.png" alt="" />
+        <img class="entry-glitch__channel entry-glitch__channel--cyan" src="images/entry-crt-interface.png" alt="" />
+        <span class="entry-glitch__scanlines"></span>
+        <span class="entry-glitch__tracking-line"></span>
+      </div>
+      <div class="entry-screen__footer">
+        <span class="entry-screen__status"><i></i><b id="entryStatus">SIGNAL STABLE</b></span>
+        <button class="entry-screen__skip" id="entrySkip" type="button">进入作品集 <span>→</span></button>
+      </div>
+    </div>
+  </section>
+
   <header class="nav" id="nav">
     <div class="nav__inner">
       <a href="#" class="nav__logo">GY<span class="dot">.</span></a>
@@ -409,5 +426,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script src="js/interactions-gsap.js"></script>
+  <script src="js/entry-glitch.js"></script>
 </body>
 </html>
