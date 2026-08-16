@@ -595,6 +595,7 @@ body.edit-mode .mobile-menu__add-item button {
 .card__img--6 { background: var(--card-6); }
 .card__img--7 { background: #d8e8e0; }
 .card__img--8 { background: #e8d8c8; }
+.card__img--15 { background: #f1eee4; }
 
 /* If you add real images later: */
 .card__img img {
