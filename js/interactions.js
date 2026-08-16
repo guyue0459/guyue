@@ -68,6 +68,8 @@ lightbox.innerHTML = `
     <button class="lightbox__nav lightbox__nav--next" aria-label="下一个">›</button>
     <div class="lightbox__image-wrap">
       <img class="lightbox__image" src="" alt="" />
+      <video class="lightbox__video" controls playsinline preload="metadata"></video>
+      <span class="lightbox__counter" aria-live="polite"></span>
     </div>
     <div class="lightbox__info">
       <span class="lightbox__tag"></span>
@@ -83,40 +85,61 @@ const lbClose = lightbox.querySelector('.lightbox__close');
 const lbPrev = lightbox.querySelector('.lightbox__nav--prev');
 const lbNext = lightbox.querySelector('.lightbox__nav--next');
 const lbImage = lightbox.querySelector('.lightbox__image');
+const lbVideo = lightbox.querySelector('.lightbox__video');
+const lbCounter = lightbox.querySelector('.lightbox__counter');
 const lbTag = lightbox.querySelector('.lightbox__tag');
 const lbTitle = lightbox.querySelector('.lightbox__title');
 const lbDesc = lightbox.querySelector('.lightbox__desc');
 
-let currentIndex = 0;
-let workCards = [];
+let currentMediaIndex = 0;
+let currentMedia = [];
+let activeCard = null;
 
 function updateLightbox() {
-  const card = workCards[currentIndex];
+  const card = activeCard;
   if (!card) return;
 
-  const img = card.querySelector('img');
   const tag = card.querySelector('.card__tag');
   const title = card.querySelector('.card__title');
   const desc = card.querySelector('.card__desc');
+  const media = currentMedia[currentMediaIndex];
 
-  lbImage.src = img?.src || '';
+  lbVideo.pause();
+  lbVideo.removeAttribute('src');
+  lbImage.hidden = media?.type === 'video';
+  lbVideo.hidden = media?.type !== 'video';
+  if (media?.type === 'video') {
+    lbVideo.src = media.src;
+    lbVideo.poster = card.querySelector('img')?.src || '';
+  } else {
+    lbImage.src = media?.src || card.querySelector('img')?.src || '';
+    lbImage.alt = title?.textContent || '';
+  }
   lbTag.textContent = tag?.textContent || '';
   lbTitle.textContent = title?.textContent || '';
   lbDesc.textContent = desc?.textContent || '';
 
-  lbPrev.style.display = currentIndex === 0 ? 'none' : '';
-  lbNext.style.display = currentIndex === workCards.length - 1 ? 'none' : '';
+  const hasMultiple = currentMedia.length > 1;
+  lbPrev.style.display = hasMultiple ? '' : 'none';
+  lbNext.style.display = hasMultiple ? '' : 'none';
+  lbCounter.textContent = hasMultiple ? `${currentMediaIndex + 1} / ${currentMedia.length}` : '';
 }
 
-function openLightbox(index) {
-  workCards = Array.from(document.querySelectorAll('.work__card')).filter(c => c.style.display !== 'none');
-  currentIndex = index;
+function openLightbox(card) {
+  activeCard = card;
+  const gallery = (card.dataset.gallery || '').split('|').map(item => item.trim()).filter(Boolean);
+  currentMedia = gallery.map(src => ({ type: 'image', src }));
+  if (!currentMedia.length) currentMedia.push({ type: 'image', src: card.querySelector('img')?.src || '' });
+  const videos = (card.dataset.videos || card.dataset.video || '').split('|').map(item => item.trim()).filter(Boolean);
+  currentMedia.push(...videos.map(src => ({ type: 'video', src })));
+  currentMediaIndex = 0;
   updateLightbox();
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
 function closeLightbox() {
+  lbVideo.pause();
   lightbox.classList.remove('open');
   document.body.style.overflow = '';
 }
@@ -124,24 +147,35 @@ function closeLightbox() {
 lbOverlay.addEventListener('click', closeLightbox);
 lbClose.addEventListener('click', closeLightbox);
 lbPrev.addEventListener('click', () => {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateLightbox();
-  }
+  if (!currentMedia.length) return;
+  currentMediaIndex = (currentMediaIndex - 1 + currentMedia.length) % currentMedia.length;
+  updateLightbox();
 });
 lbNext.addEventListener('click', () => {
-  if (currentIndex < workCards.length - 1) {
-    currentIndex++;
-    updateLightbox();
-  }
+  if (!currentMedia.length) return;
+  currentMediaIndex = (currentMediaIndex + 1) % currentMedia.length;
+  updateLightbox();
 });
 
 document.addEventListener('keydown', e => {
   if (!lightbox.classList.contains('open')) return;
   if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowLeft' && currentIndex > 0) { currentIndex--; updateLightbox(); }
-  if (e.key === 'ArrowRight' && currentIndex < workCards.length - 1) { currentIndex++; updateLightbox(); }
+  if (e.key === 'ArrowLeft' && currentMedia.length > 1) { currentMediaIndex = (currentMediaIndex - 1 + currentMedia.length) % currentMedia.length; updateLightbox(); }
+  if (e.key === 'ArrowRight' && currentMedia.length > 1) { currentMediaIndex = (currentMediaIndex + 1) % currentMedia.length; updateLightbox(); }
 });
+
+let swipeStartX = null;
+lightbox.addEventListener('touchstart', e => { swipeStartX = e.changedTouches[0]?.clientX ?? null; }, { passive: true });
+lightbox.addEventListener('touchend', e => {
+  if (swipeStartX === null || currentMedia.length < 2) return;
+  const delta = (e.changedTouches[0]?.clientX ?? swipeStartX) - swipeStartX;
+  swipeStartX = null;
+  if (Math.abs(delta) < 45) return;
+  currentMediaIndex = delta < 0
+    ? (currentMediaIndex + 1) % currentMedia.length
+    : (currentMediaIndex - 1 + currentMedia.length) % currentMedia.length;
+  updateLightbox();
+}, { passive: true });
 
 // Attach to work cards (only when not in edit mode)
 document.getElementById('workGrid').addEventListener('click', e => {
@@ -150,14 +184,15 @@ document.getElementById('workGrid').addEventListener('click', e => {
   const card = e.target.closest('.work__card');
   if (!card || e.target.closest('.item-delete-btn')) return;
 
+  // Interactive projects have their own live page instead of the image lightbox.
+  if (e.target.closest('[data-live-project]')) return;
+
   const clickedLink = e.target.closest('.card__link');
   const clickedImg = e.target.closest('.card__img');
 
   if (clickedLink || clickedImg) {
     e.preventDefault();
-    const allCards = Array.from(document.querySelectorAll('.work__card')).filter(c => c.style.display !== 'none');
-    const index = allCards.indexOf(card);
-    if (index !== -1) openLightbox(index);
+    openLightbox(card);
   }
 });
 

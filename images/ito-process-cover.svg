@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">ITO Process Analysis</title><desc id="desc">良率趋势、制程节点和膜阻热力图的数据分析界面封面</desc>
+  <rect width="1200" height="900" fill="#eef2f6"/><rect x="62" y="58" width="1076" height="784" rx="26" fill="#fff" stroke="#d8e0e8" stroke-width="3"/>
+  <rect x="62" y="58" width="1076" height="74" rx="26" fill="#152033"/><rect x="62" y="106" width="1076" height="26" fill="#152033"/>
+  <text x="104" y="104" fill="#fff" font-family="Arial,sans-serif" font-size="25" font-weight="700">ITO PROCESS ANALYSIS</text><circle cx="1078" cy="94" r="9" fill="#79b8a8"/>
+  <text x="104" y="194" fill="#667085" font-family="Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="3">MANUFACTURING INTELLIGENCE</text>
+  <text x="104" y="255" fill="#152033" font-family="Arial,sans-serif" font-size="56" font-weight="700">从参数到良率</text>
+  <g transform="translate(104 320)"><rect width="650" height="242" rx="18" fill="#f8fafb" stroke="#d8e0e8" stroke-width="2"/>
+    <path d="M42 181 C110 152 130 165 186 132 S286 155 350 98 S449 133 514 74 S579 92 611 50" fill="none" stroke="#176b5b" stroke-width="8" stroke-linecap="round"/>
+    <path d="M42 201H611M42 151H611M42 101H611M42 51H611" stroke="#d8e0e8" stroke-width="2"/>
+    <text x="42" y="32" fill="#667085" font-family="Arial,sans-serif" font-size="17">BATCH YIELD TREND</text></g>
+  <g transform="translate(786 320)"><rect width="310" height="242" rx="18" fill="#176b5b"/><text x="28" y="42" fill="#bde4da" font-family="Arial,sans-serif" font-size="15" letter-spacing="2">KEY FINDING</text><text x="28" y="99" fill="#fff" font-family="Arial,sans-serif" font-size="29" font-weight="700">颗粒缺陷集中于</text><text x="28" y="137" fill="#fff" font-family="Arial,sans-serif" font-size="29" font-weight="700">SP-02</text><text x="28" y="194" fill="#d9eee8" font-family="Arial,sans-serif" font-size="18">43% PARTICLE DEFECTS</text></g>
+  <g transform="translate(104 610)" font-family="Arial,sans-serif"><text y="22" fill="#667085" font-size="15" letter-spacing="2">PROCESS PATH</text>
+    <g transform="translate(0 46)"><rect width="133" height="76" rx="12" fill="#176b5b"/><text x="20" y="45" fill="#fff" font-size="20" font-weight="700">清洗</text></g>
+    <path d="M143 84H167" stroke="#79b8a8" stroke-width="3"/>
+    <g transform="translate(177 46)"><rect width="133" height="76" rx="12" fill="#d9eee8"/><text x="20" y="45" fill="#176b5b" font-size="20" font-weight="700">溅镀</text></g>
+    <path d="M320 84H344" stroke="#79b8a8" stroke-width="3"/>
+    <g transform="translate(354 46)"><rect width="133" height="76" rx="12" fill="#f5f7f9" stroke="#d8e0e8"/><text x="20" y="45" fill="#152033" font-size="20" font-weight="700">涂胶</text></g>
+    <path d="M497 84H521" stroke="#79b8a8" stroke-width="3"/>
+    <g transform="translate(531 46)"><rect width="133" height="76" rx="12" fill="#f5f7f9" stroke="#d8e0e8"/><text x="20" y="45" fill="#152033" font-size="20" font-weight="700">曝光</text></g>
+    <text x="720" y="93" fill="#176b5b" font-size="54" font-weight="700">94.7%</text><text x="922" y="93" fill="#667085" font-size="17">OVERALL YIELD</text>
+  </g>
+</svg>

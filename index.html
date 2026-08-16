@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio — 古月</title>
-  <meta name="description" content="古月 — 视觉设计师 & 手绘插画师，上海师范大学美术学院" />
+  <meta name="description" content="古月 — 视觉设计、交互原型与数据表达，上海师范大学美术学院" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
@@ -39,6 +39,7 @@
           <li><a href="#work" data-key="nav-work">作品</a></li>
           <li><a href="#messages" data-key="nav-messages">留言</a></li>
           <li><a href="#contact" data-key="nav-contact">联系</a></li>
+          <li><a href="https://github.com/guyue0459" target="_blank" rel="noopener noreferrer" aria-label="在新标签页打开 GitHub 主页">GitHub ↗</a></li>
           <li class="nav__add-item" id="navAddBtn" style="display: none;">
             <button title="添加导航项">+</button>
           </li>
@@ -57,6 +58,7 @@
       <li><a href="#work" class="menu-link" data-key="nav-work">作品</a></li>
       <li><a href="#messages" class="menu-link" data-key="nav-messages">留言</a></li>
       <li><a href="#contact" class="menu-link" data-key="nav-contact">联系</a></li>
+      <li><a href="https://github.com/guyue0459" class="menu-link" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
       <li class="mobile-menu__add-item" id="mobileNavAddBtn" style="display: none;">
         <button title="添加导航项">+ 添加导航</button>
       </li>
@@ -68,13 +70,13 @@
     <!-- Hero -->
     <section class="hero" id="home">
       <div class="hero__content">
-        <p class="hero__eyebrow fade-in" data-key="hero-eyebrow">Visual Designer &amp; Illustrator</p>
+        <p class="hero__eyebrow fade-in" data-key="hero-eyebrow">Visual Designer &amp; Creative Technologist</p>
         <h1 class="hero__title fade-in delay-1" data-key="hero-title">
           Hi, I'm <em>古月</em><span class="dot">.</span>
         </h1>
         <p class="hero__desc fade-in delay-2" data-key="hero-desc">
-          上海师范大学美术学院在读，兼具艺术审美与商业设计思维。<br />
-          专注品牌视觉、海报设计与手绘插画创作。
+          上海师范大学美术学院在读，以视觉设计连接品牌、产品与数据。<br />
+          关注用户增长、交互原型、AI 视觉与信息表达。
         </p>
         <div class="hero__actions fade-in delay-3">
           <a href="#work" class="btn btn--primary">查看作品</a>
@@ -93,18 +95,18 @@
         <div class="section__label">关于我</div>
         <div class="about__grid">
           <div class="about__text">
-            <h2 class="section__title" data-key="about-title">热爱<em>绘画</em>，<br />探索<em>设计</em>。</h2>
-            <p data-key="about-p1">我是一名就读于上海师范大学的美术学师范类学生，始终怀揣对绘画与艺术设计的热忱。</p>
-            <p data-key="about-p2">在创作中，我既醉心于手绘创作的细腻质感，也热衷用 PS、AI、Procreate、Figma 等软件探索数字艺术的多元可能。日常运营自媒体的经历，让我在分享中持续打磨视觉表达与内容逻辑。</p>
+            <h2 class="section__title" data-key="about-title">从<em>视觉</em>出发，<br />把想法变成<em>体验</em>。</h2>
+            <p data-key="about-p1">我就读于上海师范大学美术学院，拥有品牌视觉、用户增长物料、手绘地图、展览统筹与规划项目等多类型实践经验。</p>
+            <p data-key="about-p2">我习惯从目标与用户出发，把审美判断转化为可落地的设计系统；也持续探索 AI 素材生产、数据可视化和前端原型，让作品不仅被看见，也能够被使用和验证。</p>
             <div class="about__skills">
               <div class="skill-tag" data-key="skill-1">Photoshop</div>
               <div class="skill-tag" data-key="skill-2">Illustrator</div>
               <div class="skill-tag" data-key="skill-3">Procreate</div>
               <div class="skill-tag" data-key="skill-4">Figma</div>
-              <div class="skill-tag" data-key="skill-5">AU/PR</div>
-              <div class="skill-tag" data-key="skill-6">手绘插画</div>
-              <div class="skill-tag" data-key="skill-7">视频剪辑</div>
-              <div class="skill-tag" data-key="skill-8">自媒体运营</div>
+              <div class="skill-tag" data-key="skill-5">AI 视觉生成</div>
+              <div class="skill-tag" data-key="skill-6">数据可视化</div>
+              <div class="skill-tag" data-key="skill-7">前端原型</div>
+              <div class="skill-tag" data-key="skill-8">CAD</div>
             </div>
           </div>
           <div class="about__photo">
@@ -121,54 +123,19 @@
       <div class="container">
         <div class="section__label">实习经历</div>
         <h2 class="section__title">Work <em>Experience</em></h2>
-        <div class="exp__list" id="expList">
-
-          <div class="exp__item" data-exp-id="1">
-            <button class="item-delete-btn" data-delete-type="exp" data-delete-id="1" title="删除">×</button>
-            <div class="exp__meta">
-              <div class="exp__period" data-key="exp-1-period">2025.04 — 2025.07</div>
-              <div class="exp__tag" data-key="exp-1-tag">平面设计</div>
-            </div>
-            <div class="exp__content">
-              <h3 class="exp__company" data-key="exp-1-company">锦江丽笙酒店</h3>
-              <p class="exp__role" data-key="exp-1-role">品牌设计实习生</p>
-              <p class="exp__desc" data-key="exp-1-desc">独立执行线下海报、APP 滚动 Banner、小程序首页 Banner 全流程设计，共完成 10 套物料并 100% 通过审核投入使用。</p>
-            </div>
-          </div>
-
-          <div class="exp__item" data-exp-id="2">
-            <button class="item-delete-btn" data-delete-type="exp" data-delete-id="2" title="删除">×</button>
-            <div class="exp__meta">
-              <div class="exp__period" data-key="exp-2-period">2025.07 — 2025.10</div>
-              <div class="exp__tag" data-key="exp-2-tag">视觉设计</div>
-            </div>
-            <div class="exp__content">
-              <h3 class="exp__company" data-key="exp-2-company">上海水务规划设计院</h3>
-              <p class="exp__role" data-key="exp-2-role">视觉设计实习生</p>
-              <p class="exp__desc" data-key="exp-2-desc">参与院内宣传物料与报告的视觉设计排版，积累了专业机构品牌视觉的实战经验。</p>
-            </div>
-          </div>
-
-          <div class="exp__item" data-exp-id="3">
-            <button class="item-delete-btn" data-delete-type="exp" data-delete-id="3" title="删除">×</button>
-            <div class="exp__meta">
-              <div class="exp__period" data-key="exp-3-period">2025.10 — 2026.01</div>
-              <div class="exp__tag" data-key="exp-3-tag">UI 设计</div>
-            </div>
-            <div class="exp__content">
-              <h3 class="exp__company" data-key="exp-3-company">异乡好居</h3>
-              <p class="exp__role" data-key="exp-3-role">UI / 运营设计实习生</p>
-              <p class="exp__desc" data-key="exp-3-desc">负责平台 H5 页面、活动 Banner 及推广海报的视觉输出，深入了解互联网产品的设计规范与迭代流程。</p>
-            </div>
-          </div>
-
+        <div class="exp__list exp__list--compact" id="expList">
+          <div class="exp__item" data-exp-id="1"><div class="exp__period" data-key="exp-1-period">2026.01 — 2026.06</div><p class="exp__line"><strong data-key="exp-1-company">回响科技</strong><span data-key="exp-1-role">用户增长视觉设计实习生</span><span data-key="exp-1-desc">负责拉新与转化视觉物料、投放素材的数据迭代，参与比价小程序视觉配套与 AI 素材生产，并搭建内部素材资源库。</span></p></div>
+          <div class="exp__item" data-exp-id="2"><div class="exp__period" data-key="exp-2-period">2025.06 — 2025.10</div><p class="exp__line"><strong data-key="exp-2-company">上海水务设计规划院</strong><span data-key="exp-2-role">项目助理</span><span data-key="exp-2-desc">参与城市河道蓝线规划专项，完成资料整理、现场踏勘及 CAD 规划草图绘制，把复杂现场信息转化为清晰的规划材料。</span></p></div>
+          <div class="exp__item" data-exp-id="3"><div class="exp__period" data-key="exp-3-period">2025.10 — 2025.11</div><p class="exp__line"><strong data-key="exp-3-company">异乡好居</strong><span data-key="exp-3-role">视觉设计项目</span><span data-key="exp-3-desc">独立完成 15 套留学生公寓手绘地图，补充租房宣传视觉素材，以更直观的信息表达支持房源转化。</span></p></div>
+          <div class="exp__item" data-exp-id="4"><div class="exp__period" data-key="exp-4-period">2025.04 — 2025.05</div><p class="exp__line"><strong data-key="exp-4-company">“心象 2”美术展</strong><span data-key="exp-4-role">展务负责人</span><span data-key="exp-4-desc">统筹布展、线上宣发、开幕与撤展全流程，协调人员、作品与现场节奏，确保展览完整落地。</span></p></div>
+          <div class="exp__item" data-exp-id="5"><div class="exp__period" data-key="exp-5-period">2025.02 — 2025.03</div><p class="exp__line"><strong data-key="exp-5-company">锦江丽笙酒店</strong><span data-key="exp-5-role">品牌视觉设计项目</span><span data-key="exp-5-desc">独立设计线上与线下全渠道宣传 Banner，统一品牌视觉表达，并适配不同传播场景。</span></p></div>
+          <div class="exp__item" data-exp-id="6"><div class="exp__period" data-key="exp-6-period">2024.04 — 2024.05</div><p class="exp__line"><strong data-key="exp-6-company">江海证券</strong><span data-key="exp-6-role">党建 Logo 设计项目</span><span data-key="exp-6-desc">融合金融与党建元素完成 Logo 全流程设计，最终延展并落地至 50 余类宣传场景。</span></p></div>
+          <div class="exp__item" data-exp-id="7"><div class="exp__period" data-key="exp-7-period">2024.04 — 至今</div><p class="exp__line"><strong data-key="exp-7-company">上海师范大学辩论队</strong><span data-key="exp-7-role">领队</span><span data-key="exp-7-desc">统筹队员招募、训练与校际赛事组织，在长期协作中持续锻炼沟通、统筹与公共表达能力。</span></p></div>
+          <div class="exp__item" data-exp-id="8"><div class="exp__period" data-key="exp-8-period">2024.10</div><p class="exp__line"><strong data-key="exp-8-company">中华艺术宫</strong><span data-key="exp-8-role">撤展负责人</span><span data-key="exp-8-desc">负责美院参展艺术品的打包、运输与清点协调，实现全部展品零损坏交接。</span></p></div>
+          <div class="exp__item" data-exp-id="9"><div class="exp__period" data-key="exp-9-period">持续迭代</div><p class="exp__line"><strong data-key="exp-9-company">校园比价小程序</strong><span data-key="exp-9-role">独立产品实践</span><span data-key="exp-9-desc">独立搭建并持续迭代比价小程序；发布实操教程笔记获得 10 万+曝光，并从反馈中识别垂直用户需求。</span></p></div>
         </div>
 
-        <!-- Add experience button (edit mode only) -->
-        <button class="add-item-btn" id="addExpBtn">
-          <span class="add-item-btn__icon">+</span>
-          <span>添加经历</span>
-        </button>
+        <button class="add-item-btn exp__legacy-add" id="addExpBtn" aria-hidden="true" tabindex="-1"><span>添加经历</span></button>
       </div>
     </section>
 
@@ -184,9 +151,37 @@
 
         <div class="work__grid" id="workGrid">
 
+          <article class="work__card work__card--live" data-category="ui" data-card-id="12">
+            <div class="card__img card__img--12">
+              <img src="images/moon-tarot-cover.png" alt="月引塔罗互动网站界面" />
+              <div class="card__img-edit-hint">点击更换图片</div>
+              <div class="card__overlay"><a href="tarot/index.html" class="card__link" data-live-project target="_blank" rel="noopener">进入占卜 ↗</a></div>
+              <button class="item-delete-btn" data-delete-type="card" data-delete-id="12" title="删除">×</button>
+            </div>
+            <div class="card__info">
+              <span class="card__tag" data-key="card-12-tag">互动网页 · UI / UX</span>
+              <h3 class="card__title" data-key="card-12-title">月引 · 原创塔罗体验</h3>
+              <p class="card__desc" data-key="card-12-desc">从视觉、动效到交互完整设计的响应式塔罗网站，包含抽牌仪式、AI 解读指令、占卜簿与礼物互动。</p>
+            </div>
+          </article>
+
+          <article class="work__card work__card--live" data-category="ui" data-card-id="13">
+            <div class="card__img card__img--13">
+              <img src="images/ito-process-cover.svg" alt="ITO 制程分析交互数据页面" />
+              <div class="card__img-edit-hint">点击更换图片</div>
+              <div class="card__overlay"><a href="ito-process-analysis/index.html#analysis" class="card__link" data-live-project target="_blank" rel="noopener">查看分析 ↗</a></div>
+              <button class="item-delete-btn" data-delete-type="card" data-delete-id="13" title="删除">×</button>
+            </div>
+            <div class="card__info">
+              <span class="card__tag" data-key="card-13-tag">数据可视化 · 交互原型</span>
+              <h3 class="card__title" data-key="card-13-title">ITO Process Analysis</h3>
+              <p class="card__desc" data-key="card-13-desc">以 12,480 条模拟制造记录构建制程分析界面，呈现良率趋势、缺陷 Pareto、膜阻热力图与工艺节点追溯。</p>
+            </div>
+          </article>
+
           <article class="work__card" data-category="graphic" data-card-id="1">
-            <div class="card__img card__img--1">
-              <img src="images/work-1.png" alt="LADY SNOWBLOOD 电影海报" />
+            <div class="card__img card__img--1 card__img--portfolio-page">
+              <img src="images/lady-snowblood-portfolio-new.jpeg" alt="LADY SNOWBLOOD 电影海报设计展示" />
               <div class="card__img-edit-hint">点击更换图片</div>
               <div class="card__overlay"><a href="#" class="card__link">查看作品 →</a></div>
               <button class="item-delete-btn" data-delete-type="card" data-delete-id="1" title="删除">×</button>
@@ -227,8 +222,8 @@
           </article>
 
           <article class="work__card" data-category="graphic" data-card-id="4">
-            <div class="card__img card__img--4">
-              <img src="images/work-4.png" alt="锦江丽笙酒店 品牌物料" />
+            <div class="card__img card__img--4 card__img--portfolio-page">
+              <img src="images/jinjiang-radisson-portfolio.png" alt="锦江丽笙酒店海报与 Banner 品牌物料" />
               <div class="card__img-edit-hint">点击更换图片</div>
               <div class="card__overlay"><a href="#" class="card__link">查看作品 →</a></div>
               <button class="item-delete-btn" data-delete-type="card" data-delete-id="4" title="删除">×</button>
@@ -241,72 +236,58 @@
           </article>
 
           <article class="work__card" data-category="ui" data-card-id="5">
-            <div class="card__img card__img--5">
-              <img src="images/work-5.png" alt="健身小程序 UI" />
+            <div class="card__img card__img--5 card__img--portfolio-page">
+              <img src="images/mental-health-ui-portfolio.png" alt="Sanctuary 心理健康 App UI 界面设计" />
               <div class="card__img-edit-hint">点击更换图片</div>
               <div class="card__overlay"><a href="#" class="card__link">查看作品 →</a></div>
               <button class="item-delete-btn" data-delete-type="card" data-delete-id="5" title="删除">×</button>
             </div>
             <div class="card__info">
-              <span class="card__tag" data-key="card-5-tag">UI 设计</span>
-              <h3 class="card__title" data-key="card-5-title">健身小程序 UI 界面设计</h3>
-              <p class="card__desc" data-key="card-5-desc">微信健身小程序界面交互设计，涵盖运动打卡、数据记录、社区互动等核心功能模块的移动端 UI 设计。</p>
+              <span class="card__tag" data-key="card-5-tag">UI / UX · 心理健康</span>
+              <h3 class="card__title" data-key="card-5-title">Sanctuary 心理健康 App UI</h3>
+              <p class="card__desc" data-key="card-5-desc">围绕情绪签到、冥想内容、成长连续记录与陪伴式反馈，设计柔和、游戏化的心理健康移动端体验。</p>
+            </div>
+          </article>
+
+          <article class="work__card" data-category="ui" data-card-id="14" data-gallery="images/booking-miniapp-frontend.png|images/booking-miniapp-backend.png|images/booking-miniapp-website.png">
+            <div class="card__img card__img--5 card__img--portfolio-page">
+              <img src="images/booking-miniapp-frontend.png" alt="预约小程序前端、后端与网站设计" />
+              <div class="card__img-edit-hint">点击更换图片</div>
+              <div class="card__overlay"><a href="#" class="card__link">滑动查看 3 张 →</a></div>
+              <button class="item-delete-btn" data-delete-type="card" data-delete-id="14" title="删除">×</button>
+            </div>
+            <div class="card__info">
+              <span class="card__tag" data-key="card-14-tag">小程序 · 前后端</span>
+              <h3 class="card__title" data-key="card-14-title">预约小程序与个人网站</h3>
+              <p class="card__desc" data-key="card-14-desc">涵盖预约小程序前端流程、后台服务管理与个人作品网站搭建，以完整页面组展示产品设计和落地能力。</p>
             </div>
           </article>
 
           <article class="work__card" data-category="painting" data-card-id="8">
-            <div class="card__img card__img--8">
-              <img src="images/work-8.png" alt="绘画系列·国画" />
+            <div class="card__img card__img--8 card__img--portfolio-page">
+              <img src="images/oil-painting-portfolio.png" alt="古月油画作品系列" />
               <div class="card__img-edit-hint">点击更换图片</div>
               <div class="card__overlay"><a href="#" class="card__link">查看作品 →</a></div>
               <button class="item-delete-btn" data-delete-type="card" data-delete-id="8" title="删除">×</button>
             </div>
             <div class="card__info">
-              <span class="card__tag" data-key="card-8-tag">绘画</span>
-              <h3 class="card__title" data-key="card-8-title">绘画系列·油画 / 国画 / 版画</h3>
-              <p class="card__desc" data-key="card-8-desc">涵盖油画（具象与抽象）、国画（工笔花鸟）、版画、板绘等多种媒介的综合绘画作品创作。</p>
+              <span class="card__tag" data-key="card-8-tag">绘画 · 油画</span>
+              <h3 class="card__title" data-key="card-8-title">油画作品系列</h3>
+              <p class="card__desc" data-key="card-8-desc">以色彩、肌理与具象角色探索情绪表达，呈现抽象风景与小幅人物油画作品。</p>
             </div>
           </article>
 
-          <article class="work__card" data-category="animation" data-card-id="9">
-            <div class="card__img card__img--1">
-              <img src="images/work-1.png" alt="动画项目示意" />
+          <article class="work__card" data-category="animation" data-card-id="9" data-videos="videos/aigc-background.mp4|videos/aigc-animation-02.mov">
+            <div class="card__img card__img--1 card__img--portfolio-page">
+              <img src="images/aigc-animation-cover-new.png" alt="AIGC 动画视频项目展示" />
               <div class="card__img-edit-hint">点击更换图片</div>
-              <div class="card__overlay"><a href="#" class="card__link">查看作品 →</a></div>
+              <div class="card__overlay"><a href="#" class="card__link">播放 2 个视频 →</a></div>
               <button class="item-delete-btn" data-delete-type="card" data-delete-id="9" title="删除">×</button>
             </div>
             <div class="card__info">
-              <span class="card__tag" data-key="card-9-tag">动画 / 视频</span>
-              <h3 class="card__title" data-key="card-9-title">动画短片 Demo</h3>
-              <p class="card__desc" data-key="card-9-desc">短片动画演示项目，包含故事板、运动设计与渲染效果，展示动态品牌插画风格。</p>
-            </div>
-          </article>
-
-          <article class="work__card" data-category="photography" data-card-id="10">
-            <div class="card__img card__img--2">
-              <img src="images/work-2.png" alt="摄影作品集" />
-              <div class="card__img-edit-hint">点击更换图片</div>
-              <div class="card__overlay"><a href="#" class="card__link">查看作品 →</a></div>
-              <button class="item-delete-btn" data-delete-type="card" data-delete-id="10" title="删除">×</button>
-            </div>
-            <div class="card__info">
-              <span class="card__tag" data-key="card-10-tag">摄影</span>
-              <h3 class="card__title" data-key="card-10-title">摄影系列·城市与人文</h3>
-              <p class="card__desc" data-key="card-10-desc">街头摄影与人文故事捕捉，强调光影与构图，通过镜头讲述城市生活记忆。</p>
-            </div>
-          </article>
-
-          <article class="work__card" data-category="other" data-card-id="11">
-            <div class="card__img card__img--3">
-              <img src="images/work-3.png" alt="跨界设计实验" />
-              <div class="card__img-edit-hint">点击更换图片</div>
-              <div class="card__overlay"><a href="#" class="card__link">查看作品 →</a></div>
-              <button class="item-delete-btn" data-delete-type="card" data-delete-id="11" title="删除">×</button>
-            </div>
-            <div class="card__info">
-              <span class="card__tag" data-key="card-11-tag">其他</span>
-              <h3 class="card__title" data-key="card-11-title">跨界创意实验</h3>
-              <p class="card__desc" data-key="card-11-desc">跨领域视觉实验，结合互动设计与装置艺术探索感官表达与用户体验。</p>
+              <span class="card__tag" data-key="card-9-tag">AIGC · 动画视频</span>
+              <h3 class="card__title" data-key="card-9-title">AIGC 动画视频</h3>
+              <p class="card__desc" data-key="card-9-desc">将 AI 生成角色与场景用于新品预测和产品宣发，完成视觉设定、镜头素材与动态内容实验。</p>
             </div>
           </article>
 
@@ -421,7 +402,7 @@
     <button class="edit-trigger-btn" id="editBtn">✏ 编辑</button>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=tarot-entry-1"></script>
   <script src="js/interactions.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>

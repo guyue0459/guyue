@@ -58,6 +58,23 @@ ul { list-style: none; }
 
 img { display: block; max-width: 100%; }
 
+.work__card--live .card__img::after {
+  content: 'LIVE';
+  position: absolute;
+  z-index: 3;
+  top: 1rem;
+  right: 1rem;
+  padding: .32rem .55rem;
+  color: #f5f4ef;
+  background: #151924;
+  border: 1px solid rgba(255,255,255,.32);
+  border-radius: 999px;
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  pointer-events: none;
+}
+
 /* ========================================
    ENTRY / CRT SIGNAL
    ======================================== */
@@ -523,6 +540,7 @@ body.edit-mode .mobile-menu__add-item button {
    ======================================== */
 .filter {
   display: flex;
+  flex-wrap: wrap;
   gap: var(--space-xs);
   margin-bottom: var(--space-lg);
 }
@@ -899,13 +917,73 @@ body.edit-mode .mobile-menu__add-item button {
 .exp__list {
   display: flex;
   flex-direction: column;
+  max-width: 980px;
+}
+
+.exp__list--summary {
+  display: block;
+  max-width: 760px;
+}
+
+.exp__summary {
+  margin: 0;
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+.exp__legacy-add,
+body.edit-mode .exp__legacy-add {
+  display: none;
+}
+
+.exp__list--compact {
+  max-width: none;
+}
+
+.exp__list--compact .exp__item {
+  grid-template-columns: 128px minmax(0, 1fr);
+  gap: 1.2rem;
+  padding: 0.55rem 0;
+}
+
+.exp__line {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.65fr) minmax(130px, 0.75fr) minmax(300px, 2.6fr);
+  gap: 1rem;
+  align-items: baseline;
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.exp__line strong {
+  color: var(--color-text);
+  font-size: 0.84rem;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .exp__list--compact .exp__item {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+    padding: 0.75rem 0;
+  }
+
+  .exp__line {
+    grid-template-columns: 1fr;
+    gap: 0.12rem;
+    font-size: 0.8rem;
+  }
 }
 
 .exp__item {
   display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: var(--space-lg);
-  padding: var(--space-md) 0;
+  grid-template-columns: 150px minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-sm);
+  padding: 0.9rem 0;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -914,53 +992,69 @@ body.edit-mode .mobile-menu__add-item button {
 }
 
 .exp__meta {
-  padding-top: 0.2em;
+  padding: 0;
 }
 
 .exp__period {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: var(--color-text-muted);
   letter-spacing: 0.03em;
-  margin-bottom: 0.5rem;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .exp__tag {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-text-muted);
-  border: 1px solid var(--color-border);
-  border-radius: 100px;
-  padding: 0.2rem 0.65rem;
+  display: none;
+}
+
+.exp__content {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  min-width: 0;
 }
 
 .exp__company {
-  font-size: 1.05rem;
+  flex: 0 0 auto;
+  font-size: 0.94rem;
   font-weight: 500;
-  margin-bottom: 0.2rem;
+  margin: 0;
 }
 
 .exp__role {
   font-size: 0.8rem;
   color: var(--color-text-muted);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 0.65rem;
+  letter-spacing: 0.02em;
+  margin: 0;
+  white-space: nowrap;
 }
 
 .exp__desc {
-  font-size: 0.88rem;
+  font-size: 0.8rem;
   color: var(--color-text-muted);
-  line-height: 1.75;
-  max-width: 52ch;
+  line-height: 1.55;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media (max-width: 768px) {
   .exp__item {
     grid-template-columns: 1fr;
-    gap: var(--space-xs);
+    gap: 0.35rem;
+    padding: 1rem 0;
+  }
+
+  .exp__content {
+    flex-wrap: wrap;
+    gap: 0.25rem 0.55rem;
+  }
+
+  .exp__desc {
+    flex-basis: 100%;
+    white-space: normal;
+    overflow: visible;
   }
 }
 
@@ -1770,4 +1864,40 @@ body.custom-cursor-active * {
 /* Card cursor pointer when not in edit mode */
 body:not(.edit-mode) .work__card {
   cursor: pointer;
+}
+
+/* Full portfolio spreads keep their original presentation layout inside cards. */
+.card__img--portfolio-page {
+  background: #fff;
+}
+
+.card__img--portfolio-page img {
+  object-fit: contain;
+}
+
+.lightbox__video {
+  width: 100%;
+  max-height: 70vh;
+  background: #090909;
+}
+
+.lightbox__video[hidden],
+.lightbox__image[hidden] {
+  display: none;
+}
+
+.lightbox__image-wrap {
+  position: relative;
+}
+
+.lightbox__counter {
+  position: absolute;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
 }

@@ -136,7 +136,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click
   loadAllContent();
   applyDeletedItems();
   renderCustomCards();
-  renderCustomExps();
+  // Experience is intentionally presented as one concise editable sentence.
   applyAboutPhoto();
 
   // ─── Password modal ────────────────────────────
@@ -230,7 +230,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click
   });
 
   // ─── Export HTML ───────────────────────────────
-  exportBtn.addEventListener('click', () => {
+  exportBtn?.addEventListener('click', () => {
     const clone = document.documentElement.cloneNode(true);
 
     // Bake editable content
