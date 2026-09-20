@@ -27,6 +27,7 @@ const workGrid   = document.getElementById('workGrid');
 
 // 映射分类到中文标签
 const categoryLabels = {
+  'vibecoding': 'Vibecoding 网站',
   'graphic': '平面设计',
   'ui': 'UI / 产品',
   'painting': '绘画',
@@ -53,7 +54,7 @@ function initializeFilters() {
   filterContainer.appendChild(allBtn);
 
   // 按顺序添加其他分类按钮
-  const orderedCategories = ['graphic', 'ui', 'painting', 'animation', 'photography', 'other'];
+  const orderedCategories = ['vibecoding', 'graphic', 'ui', 'painting', 'animation', 'photography', 'other'];
   orderedCategories.forEach(cat => {
     if (categories.has(cat)) {
       const btn = document.createElement('button');
@@ -470,6 +471,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click
   function openNewCardEditor(category, onCreate) {
     console.log('openNewCardEditor:', category);
     const categories = [
+      { value: 'vibecoding', label: 'Vibecoding 网站' },
       { value: 'graphic', label: '平面设计' },
       { value: 'ui', label: 'UI / 产品' },
       { value: 'painting', label: '绘画' },
